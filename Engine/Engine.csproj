@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <ProjectGuid>ba1e6695-3cc6-45f2-921a-197fe238a3b0</ProjectGuid>
+    <PublishTrimmed>True</PublishTrimmed>
+    <PublishAot>True</PublishAot>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Engine</RootNamespace>
+    <AssemblyName>Engine</AssemblyName>
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Gum.KNI" Version="2025.12.9.1" />
+    <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Audio" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Media" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Input" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Game" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Devices" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Storage" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.XR" Version="4.2.9001" />
+    <PackageReference Include="nkast.Kni.Platform.SDL2.GL" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="4.2.9001" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\AudioController.cs" />
+    <Compile Include="Debugging\Debug.cs" />
+    <Compile Include="Graphics\AnimatedSprite.cs" />
+    <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="Graphics\RenderTexture.cs" />
+    <Compile Include="Graphics\Sprite.cs" />
+    <Compile Include="Graphics\TextureAtlas.cs" />
+    <Compile Include="Graphics\TextureRegion.cs" />
+    <Compile Include="Graphics\Tilemap.cs" />
+    <Compile Include="Graphics\Tileset.cs" />
+    <Compile Include="Input\GamePadInfo.cs" />
+    <Compile Include="Input\InputManager.cs" />
+    <Compile Include="Input\KeyboardInfo.cs" />
+    <Compile Include="Input\MouseButton.cs" />
+    <Compile Include="Input\MouseInfo.cs" />
+    <Compile Include="Runtime.cs" />
+    <Compile Include="Scenes\Scene.cs" />
+    <Compile Include="Shapes\Circle.cs" />
+  </ItemGroup>
+</Project>
