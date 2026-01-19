@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
+using MonoGame.Extended.ECS;
 using MonoGame.Extended.Screens;
 using MonoGameGum.Input;
 using ToolsUtilities;
@@ -38,6 +39,8 @@ public class Runtime : Game
     
     public new static ContentManager Content { get; private set; }
     public static GumService GumUI => GumService.Default;
+
+    public static World World { get; set; }
 
     public static bool ExitOnEscape { get; set; }
     
@@ -110,6 +113,7 @@ public class Runtime : Game
         }
 
         ScreenManager.Update(gameTime);
+        World?.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -117,6 +121,7 @@ public class Runtime : Game
     protected override void Draw(GameTime gameTime)
     {
         ScreenManager.Draw(gameTime);
+        World?.Draw(gameTime);
         
         GumUI.Draw();
         RenderTexture.Draw();

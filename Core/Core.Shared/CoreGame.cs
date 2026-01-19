@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Core.ECS.Systems;
+using Microsoft.Xna.Framework;
 using Core.Scenes;
 using Engine;
+using MonoGame.Extended.ECS;
 
 namespace Core
 {
     public class CoreGame : Runtime
-    {        
+    {
         public CoreGame() : base("Project", 1280, 720, false, 320, 180) { }
 
         protected override void Initialize()

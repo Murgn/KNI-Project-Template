@@ -40,7 +40,7 @@ namespace Core.Scenes
         {
             KeyboardInfo keyboard = Runtime.Input.Keyboard;
             if(keyboard.IsKeyPressed(Keys.Space)) 
-                ScreenManager.ShowScreen(new GameplayScreen(Game), new FadeTransition(GraphicsDevice, Color.Black));
+                ScreenManager.ShowScreen(new ECSScreen(Game), new FadeTransition(GraphicsDevice, Color.Black));
         }
 
         public override void Draw(GameTime gameTime)
