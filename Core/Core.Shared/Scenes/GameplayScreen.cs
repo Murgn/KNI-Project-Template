@@ -2,11 +2,14 @@ using Engine;
 using Engine.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Screens;
 
 namespace Core.Scenes
 {
-    public class GameScene : Scene
+    public class GameplayScreen : GameScreen
     {
+        public GameplayScreen(Game game) : base(game) { }
+        
         // Initialize Systems
         public override void Initialize()
         {
@@ -36,5 +39,7 @@ namespace Core.Scenes
             }
             Runtime.SpriteBatch.End();
         }
+
+        
     }
 }

@@ -10,50 +10,18 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:C:\Users\murgn\.nuget\packages\kni.extended.content.pipeline\5.3.1\lib\net8.0\KNI.Extended.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Audio/bounce.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/build:Audio/bounce.wav
+#begin fonts/Quan.fnt
+/copy:fonts/Quan.fnt
 
-#begin Audio/collect.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/build:Audio/collect.wav
-
-#begin Audio/theme.ogg
-/importer:OggImporter
-/processor:SongProcessor
-/build:Audio/theme.ogg
-
-#begin Audio/ui.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/build:Audio/ui.wav
-
-#begin Fonts/Quan.fnt
-/copy:Fonts/Quan.fnt
-
-#begin Fonts/Quan.spritefont
+#begin fonts/Quan.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/build:Fonts/Quan.spritefont
+/build:fonts/Quan.spritefont
 
-#begin Images/atlas-definition.xml
-/copy:Images/atlas-definition.xml
-
-#begin Images/atlas.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Images/atlas.png
-
-#begin Images/background.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Images/background.png
-
-#begin Images/tilemap-definition.xml
-/copy:Images/tilemap-definition.xml
+#begin fonts/quan.ttf
+/copy:fonts/quan.ttf
 

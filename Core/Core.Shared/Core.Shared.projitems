@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CoreGame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scenes\GameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\GameplayScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenuScreen.cs" />
   </ItemGroup>
 </Project>

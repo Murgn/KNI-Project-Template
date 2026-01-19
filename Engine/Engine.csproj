@@ -15,6 +15,8 @@
   
   <ItemGroup>
     <PackageReference Include="Gum.KNI" Version="2025.12.9.1" />
+    <PackageReference Include="KNI.Extended" Version="5.3.1" />
+    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
     <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />

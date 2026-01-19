@@ -12,7 +12,7 @@ namespace Core
         {
             base.Initialize();
             
-            ChangeScene(new GameScene());
+            ScreenManager.ShowScreen(new MainMenuScreen(this));
         }
 
         protected override void LoadContent()
