@@ -10,18 +10,17 @@
 
 #-------------------------------- References --------------------------------#
 
-/reference:C:\Users\murgn\.nuget\packages\kni.extended.content.pipeline\5.3.1\lib\net8.0\KNI.Extended.Content.Pipeline.dll
+/packageReference:KNI.Extended.Content.Pipeline 5.3.1
 
 #---------------------------------- Content ---------------------------------#
 
 #begin fonts/Quan.fnt
-/copy:fonts/Quan.fnt
+/importer:BitmapFontImporter
+/processor:BitmapFontProcessor
+/build:fonts/Quan.fnt
 
-#begin fonts/Quan.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/build:fonts/Quan.spritefont
-
-#begin fonts/quan.ttf
-/copy:fonts/quan.ttf
+#begin fonts/Quan_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:fonts/Quan_0.png
 

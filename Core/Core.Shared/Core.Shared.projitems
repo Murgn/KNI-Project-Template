@@ -10,13 +10,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CoreGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\Components\PlayerComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ECS\Systems\PlayerSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ECS\Systems\RenderSystem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\ECSScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\GameplayScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenuScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ECS\Components\" />
     <Folder Include="$(MSBuildThisFileDirectory)ECS\Entities\" />
     <Folder Include="$(MSBuildThisFileDirectory)ECS\World\" />
   </ItemGroup>

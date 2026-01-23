@@ -113,7 +113,6 @@ public class Runtime : Game
         }
 
         ScreenManager.Update(gameTime);
-        World?.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -121,7 +120,6 @@ public class Runtime : Game
     protected override void Draw(GameTime gameTime)
     {
         ScreenManager.Draw(gameTime);
-        World?.Draw(gameTime);
         
         GumUI.Draw();
         RenderTexture.Draw();
