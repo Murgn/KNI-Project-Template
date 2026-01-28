@@ -1,8 +1,6 @@
-﻿using Core.ECS.Systems;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Core.Scenes;
 using Engine;
-using MonoGame.Extended.ECS;
 
 namespace Core
 {

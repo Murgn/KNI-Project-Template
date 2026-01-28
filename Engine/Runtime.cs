@@ -1,8 +1,9 @@
 using System;
 using Engine.Audio;
+using Engine.Debugging;
 using Engine.Graphics;
 using Engine.Input;
-using Engine.Scenes;
+using Engine.Screens;
 using Gum.Forms.Controls;
 using MonoGameGum;
 using Gum.Forms;
@@ -10,10 +11,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended;
-using MonoGame.Extended.ECS;
 using MonoGame.Extended.Screens;
-using MonoGameGum.Input;
 using ToolsUtilities;
 
 namespace Engine;
@@ -23,9 +21,6 @@ public class Runtime : Game
     internal static Runtime s_instance;
 
     public static Runtime Instance => s_instance;
-
-    private static Scene activeScene;
-    private static Scene nextScene;
     
     public static GraphicsDeviceManager Graphics { get; private set; }
     public new static GraphicsDevice GraphicsDevice { get; private set; }
@@ -39,11 +34,8 @@ public class Runtime : Game
     
     public new static ContentManager Content { get; private set; }
     public static GumService GumUI => GumService.Default;
-
-    public static World World { get; set; }
-
-    public static bool ExitOnEscape { get; set; }
     
+    public static bool ExitOnEscape { get; set; }
 
     public Runtime(string title, int width, int height, bool fullScreen, int virtualWidth = 256, int virtualHeight = 144)
     {
@@ -111,7 +103,7 @@ public class Runtime : Game
             try { Exit(); }
             catch (PlatformNotSupportedException) { /* ignore */ }
         }
-
+        
         ScreenManager.Update(gameTime);
 
         base.Update(gameTime);
@@ -130,11 +122,8 @@ public class Runtime : Game
     private void InitializeGum()
     {
         GumUI.Initialize(this, DefaultVisualsVersion.V3);
-        FileManager.RelativeDirectory = Content.RootDirectory;
-        // TODO: Not included in this version of Gum.KNI (as of 17/01/26), update NuGet package in a week or two!
-        // GumService.Default.ContentLoader.XnaContentManager = Core.Content;
+        FileManager.RelativeDirectory = Content.RootDirectory + "/";
+        GumService.Default.ContentLoader.XnaContentManager = Content;
         FrameworkElement.KeyboardsForUiControl.Add(GumUI.Keyboard);
-        FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo { PushedKey = Keys.Up});
-        FrameworkElement.TabKeyCombos.Add(new KeyCombo { PushedKey = Keys.Down});
     }
 }

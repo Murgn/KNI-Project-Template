@@ -24,3 +24,6 @@
 /processor:TextureProcessor
 /build:fonts/Quan_0.png
 
+#begin screens/GameplayScreen.xml
+/copy:screens/GameplayScreen.xml
+
