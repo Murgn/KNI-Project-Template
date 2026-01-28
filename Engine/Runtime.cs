@@ -104,6 +104,11 @@ public class Runtime : Game
             catch (PlatformNotSupportedException) { /* ignore */ }
         }
         
+        // i want this so badly but cant figure out a neat way to structure it with scene clearing
+        // if(ScreenManager.ActiveScreen is GameObjectScreen screen)
+        //     foreach (var gameObject in screen.GameObjects)
+        //         gameObject.Draw(gameTime);
+        
         ScreenManager.Update(gameTime);
 
         base.Update(gameTime);

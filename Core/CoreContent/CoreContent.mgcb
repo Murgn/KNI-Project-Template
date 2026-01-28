@@ -19,6 +19,12 @@
 /processor:BitmapFontProcessor
 /build:fonts/Quan.fnt
 
+#begin fonts/QuanGum.fnt
+/copy:fonts/QuanGum.fnt
+
+#begin fonts/QuanGum_0.png
+/copy:fonts/QuanGum_0.png
+
 #begin fonts/Quan_0.png
 /importer:TextureImporter
 /processor:TextureProcessor
