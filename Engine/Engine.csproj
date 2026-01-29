@@ -50,5 +50,6 @@
     <Compile Include="UI\Canvases\Canvas.cs" />
     <Compile Include="UI\Canvases\EditorCanvas.cs" />
     <Compile Include="UI\Components\TextButton.cs" />
+    <Compile Include="UI\Components\TextInput.cs" />
   </ItemGroup>
 </Project>

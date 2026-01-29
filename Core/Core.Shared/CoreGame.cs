@@ -8,7 +8,7 @@ namespace Core
 {
     public class CoreGame : Runtime
     {
-        public CoreGame() : base("Project", 1280, 720, false, 640, 360)
+        public CoreGame() : base("Project", 1280, 720, false, 640 / 2, 360 / 2)
         {
         }
 
