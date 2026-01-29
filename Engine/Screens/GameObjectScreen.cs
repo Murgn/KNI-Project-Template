@@ -18,6 +18,7 @@ public abstract class GameObjectScreen : GameScreen
     protected GameObjectScreen(Game game, string name) : base(game)
     {
         Name = name;
+        Runtime.GumUI.Root.Children.Clear();
     }
 
     public void SaveToFile(ContentManager content, string path)
@@ -57,7 +58,7 @@ public abstract class GameObjectScreen : GameScreen
 
     public void LoadFromFile(ContentManager content, string path)
     {
-        string filePath = Path.Combine(content.RootDirectory, path);
+        string filePath = Path.Combine(content.RootDirectory, path + ".xml");
         
         XElement screenElement = XElement.Load(filePath);
 
@@ -88,5 +89,11 @@ public abstract class GameObjectScreen : GameScreen
 
             GameObjects.Add(gameObject);
         }
+    }
+
+    public override void UnloadContent()
+    {
+        base.UnloadContent();
+        Runtime.GumUI.Root.Children.Clear();
     }
 }

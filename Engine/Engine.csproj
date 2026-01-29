@@ -47,6 +47,8 @@
     <Compile Include="Script.cs" />
     <Compile Include="Scripts\Rendering\PrimitiveRenderer.cs" />
     <Compile Include="Scripts\Rendering\SpriteRenderer.cs" />
-    <Compile Include="UI\EditorUI.cs" />
+    <Compile Include="UI\Canvases\Canvas.cs" />
+    <Compile Include="UI\Canvases\EditorCanvas.cs" />
+    <Compile Include="UI\Components\TextButton.cs" />
   </ItemGroup>
 </Project>

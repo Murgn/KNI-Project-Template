@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Screen name="GameplayScreen">
   <GameObject name="Player">
-    <Transform position="{X: 293.12384, Y: 156.93626 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Transform position="{X: 220.2099, Y: 142.5919 }" rotation="0" scale="{X: 1, Y: 1 }" />
     <Scripts>
       <Script type="Core.Scripts.Player.PlayerController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     </Scripts>
   </GameObject>
   <GameObject name="Player">
-    <Transform position="{X: 165.12381, Y: 84.93616 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Transform position="{X: 92.209404, Y: 70.591896 }" rotation="0" scale="{X: 1, Y: 1 }" />
     <Scripts>
       <Script type="Core.Scripts.Player.PlayerController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

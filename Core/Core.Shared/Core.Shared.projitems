@@ -14,5 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\LoadedScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenuScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scripts\Player\PlayerController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UI\Canvases\MainMenuCanvas.cs" />
   </ItemGroup>
 </Project>
