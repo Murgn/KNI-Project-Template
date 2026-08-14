@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
+using MonoGame.ImGuiNet;
 
 namespace Engine;
 
@@ -29,6 +30,8 @@ public class Runtime : Game
 
     public static BoxingViewportAdapter ViewportAdapter { get; set; }
     public static Action onViewportAdapterResize;
+    
+    public static ImGuiRenderer GuiRenderer;
     
     public static bool ExitOnEscape { get; set; }
 
@@ -100,6 +103,9 @@ public class Runtime : Game
         GraphicsDevice = base.GraphicsDevice;
         SpriteBatch = new SpriteBatch(GraphicsDevice);
         
+        GuiRenderer = new ImGuiRenderer(this);
+        GuiRenderer.RebuildFontAtlas();
+        
         Input = new InputManager();
         Audio = new AudioController();
         ScreenManager.Initialize();
@@ -113,7 +119,7 @@ public class Runtime : Game
         
         base.UnloadContent();
     }
-
+    
     protected override void Update(GameTime gameTime)
     {
         if (Paused) return;

@@ -9,12 +9,9 @@
     <Import_RootNamespace>Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AudioGenerator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Chip8.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreGame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Screens\GameplayScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Screens\MainMenuScreen.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scripts\ChipScript.cs" />
+    <Folder Include="$(MSBuildThisFileDirectory)Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)..\CoreContent\Gum\**\*.cs">

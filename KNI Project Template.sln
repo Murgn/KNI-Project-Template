@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.BlazorGL", "Core\Core.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{BA1E6695-3CC6-45F2-921A-197FE238A3B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGUI", "ImGUI\MonoGame.ImGuiNet\ImGUI.csproj", "{2DDE877A-929C-4748-B879-032A9BCD7B9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{BA1E6695-3CC6-45F2-921A-197FE238A3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1E6695-3CC6-45F2-921A-197FE238A3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1E6695-3CC6-45F2-921A-197FE238A3B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDE877A-929C-4748-B879-032A9BCD7B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDE877A-929C-4748-B879-032A9BCD7B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDE877A-929C-4748-B879-032A9BCD7B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDE877A-929C-4748-B879-032A9BCD7B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ namespace Core
 {
     public class CoreGame : Runtime
     {
-        public CoreGame() : base("Chip-8", 1024, 512, false, 64, 32) { }
+        public CoreGame() : base("Project", 1024, 512, false, 64, 32) { }
 
         protected override void Initialize()
         {

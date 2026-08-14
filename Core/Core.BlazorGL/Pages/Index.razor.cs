@@ -41,18 +41,5 @@ namespace Core.Pages
             // run gameloop
             _game.Tick();
         }
-        
-        [JSInvokable]
-        public void LoadRomFromBytes(byte[] bytes)
-        {
-            started = true;
-            Engine.Runtime.Paused = false;
-
-            Engine.Runtime.ScreenManager.ShowScreen(
-                new GameplayScreen(Engine.Runtime.Instance, bytes));
-
-            StateHasChanged();
-        }
-
     }
 }

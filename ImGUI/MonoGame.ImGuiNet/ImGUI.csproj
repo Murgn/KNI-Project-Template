@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <RollForward>Major</RollForward>
+        <PublishReadyToRun>false</PublishReadyToRun>
+        <TieredCompilation>false</TieredCompilation>
+        <Version>1.1.0</Version>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Mezo</Authors>
+        <Company>Abslute Chaos</Company>
+        <Copyright>Copyright (c) 2023 Mezo</Copyright>
+
+        <RepositoryUrl>https://github.com/Mezo-hx/MonoGame.ImGuiNet</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryBranch>main</RepositoryBranch>
+        <NeutralLanguage>en</NeutralLanguage>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>MonoGame.ImGuiNet</PackageId>
+
+        <PackageIcon>NugetpkgIcon.png</PackageIcon>
+        <PackageTags>
+            MonoGame;ImGui;import;processes;read;write;gui;
+        </PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>
+            [General fixes]
+        </PackageReleaseNotes>
+        <Description>
+            A superset of ImGuiNet with additional components designed for Monogame
+        </Description>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Title>MonoGame.ImGuiNet</Title>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../NugetpkgIcon.png" Pack="true" PackagePath="" />
+        <None Include="../README.MD" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ImGui.NET" Version="1.90.1.1" />
+        <PackageReference Include="KNI.Extended" Version="5.3.1" />
+        <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
+        <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Audio" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Media" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Input" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Game" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Devices" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Storage" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.XR" Version="4.2.9001" />
+        <PackageReference Include="nkast.Kni.Platform.SDL2.GL" Version="4.2.9001" />
+        <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="4.2.9001" />
+    </ItemGroup>
+
+    <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
+        <Message Text="Restoring dotnet tools" Importance="High" />
+        <Exec Command="dotnet tool restore" />
+    </Target>
+</Project>
