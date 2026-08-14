@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.DesktopGL", "Core\Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.BlazorGL", "Core\Core.BlazorGL\Core.BlazorGL.csproj", "{E9724250-4982-457C-B774-CFE29ADA2225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{BA1E6695-3CC6-45F2-921A-197FE238A3B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{BA1E6695-3CC6-45F2-921A-197FE238A3B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

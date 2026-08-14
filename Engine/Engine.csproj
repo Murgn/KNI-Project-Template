@@ -11,10 +11,12 @@
     <RootNamespace>Engine</RootNamespace>
     <AssemblyName>Engine</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Gum.KNI" Version="2025.12.9.1" />
+    <PackageReference Include="KNI.Extended" Version="5.3.1" />
+    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
     <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
@@ -31,21 +33,19 @@
   <ItemGroup>
     <Compile Include="Audio\AudioController.cs" />
     <Compile Include="Debugging\Debug.cs" />
-    <Compile Include="Graphics\AnimatedSprite.cs" />
-    <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Graphics\RenderTexture.cs" />
-    <Compile Include="Graphics\Sprite.cs" />
-    <Compile Include="Graphics\TextureAtlas.cs" />
-    <Compile Include="Graphics\TextureRegion.cs" />
-    <Compile Include="Graphics\Tilemap.cs" />
-    <Compile Include="Graphics\Tileset.cs" />
     <Compile Include="Input\GamePadInfo.cs" />
     <Compile Include="Input\InputManager.cs" />
     <Compile Include="Input\KeyboardInfo.cs" />
     <Compile Include="Input\MouseButton.cs" />
     <Compile Include="Input\MouseInfo.cs" />
+    <Compile Include="Maths\VectorHelpers.cs" />
     <Compile Include="Runtime.cs" />
-    <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Shapes\Circle.cs" />
+    <Compile Include="Screens\GameObjectScreen.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="Scripts\Rendering\CameraScript.cs" />
+    <Compile Include="Scripts\Rendering\PrimitiveRenderer.cs" />
+    <Compile Include="Scripts\Rendering\SpriteRenderer.cs" />
   </ItemGroup>
 </Project>

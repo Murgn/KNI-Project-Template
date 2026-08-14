@@ -21,10 +21,12 @@ public class KeyboardInfo
 
     public bool IsKeyDown(Keys key) => CurrentState.IsKeyDown(key);
     
-    public bool IsKeyUp(Keys key) => CurrentState.IsKeyDown(key);
+    public bool IsKeyUp(Keys key) => CurrentState.IsKeyUp(key);
     
     public bool IsKeyPressed(Keys key) => CurrentState.IsKeyDown(key) && PreviousState.IsKeyUp(key);
     
     public bool IsKeyReleased(Keys key) => CurrentState.IsKeyUp(key) && PreviousState.IsKeyDown(key);
+
+    public int GetKeysPressedCount() => CurrentState.GetPressedKeyCount();
 
 }

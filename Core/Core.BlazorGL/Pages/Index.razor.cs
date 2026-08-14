@@ -1,19 +1,29 @@
 using Microsoft.JSInterop;
 using Microsoft.Xna.Framework;
 using System;
+using System.Threading.Tasks;
+using Core.Scenes;
 
 namespace Core.Pages
 {
     public partial class Index
     {
         Game _game;
+        bool started = false;
 
+        async Task StartGame()
+        {
+            started = true;
+            Engine.Runtime.Paused = false;
+        }
+        
         protected override void OnAfterRender(bool firstRender)
         {
             base.OnAfterRender(firstRender);
-
+        
             if (firstRender)
             {
+                Engine.Runtime.Paused = true;
                 JsRuntime.InvokeAsync<object>("initRenderJS", DotNetObjectReference.Create(this));
             }
         }
@@ -30,6 +40,18 @@ namespace Core.Pages
 
             // run gameloop
             _game.Tick();
+        }
+        
+        [JSInvokable]
+        public void LoadRomFromBytes(byte[] bytes)
+        {
+            started = true;
+            Engine.Runtime.Paused = false;
+
+            Engine.Runtime.ScreenManager.ShowScreen(
+                new GameplayScreen(Engine.Runtime.Instance, bytes));
+
+            StateHasChanged();
         }
 
     }

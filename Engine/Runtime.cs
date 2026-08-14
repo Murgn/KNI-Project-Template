@@ -1,17 +1,12 @@
 using System;
 using Engine.Audio;
-using Engine.Graphics;
 using Engine.Input;
-using Engine.Scenes;
-using Gum.Forms.Controls;
-using MonoGameGum;
-using Gum.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGameGum.Input;
-using ToolsUtilities;
+using MonoGame.Extended.Screens;
+using MonoGame.Extended.ViewportAdapters;
 
 namespace Engine;
 
@@ -20,25 +15,57 @@ public class Runtime : Game
     internal static Runtime s_instance;
 
     public static Runtime Instance => s_instance;
-
-    private static Scene activeScene;
-    private static Scene nextScene;
     
     public static GraphicsDeviceManager Graphics { get; private set; }
     public new static GraphicsDevice GraphicsDevice { get; private set; }
     public static SpriteBatch SpriteBatch { get; private set; }
-    public static RenderTexture RenderTexture { get; private set; }
-    
-    public new static ContentManager Content { get; private set; }
-    public static GumService GumUI => GumService.Default;
-    
-    public static InputManager Input { get; private set; }
-
-    public static bool ExitOnEscape { get; set; }
     
     public static AudioController Audio { get; private set; }
+    public static InputManager Input { get; private set; }
 
-    public Runtime(string title, int width, int height, bool fullScreen, int virtualWidth = 256, int virtualHeight = 144)
+    public static ScreenManager ScreenManager { get; private set; }
+    
+    public new static ContentManager Content { get; private set; }
+
+    public static BoxingViewportAdapter ViewportAdapter { get; set; }
+    public static Action onViewportAdapterResize;
+    
+    public static bool ExitOnEscape { get; set; }
+
+    public static int VirtualWidth
+    {
+        get
+        {
+            if (ViewportAdapter == null) throw new NullReferenceException("ViewportAdapter has not been initialized.");
+            return ViewportAdapter.VirtualWidth;
+        }
+        set
+        {
+            if (value != VirtualWidth)
+                SetVirtualResolution(value, VirtualHeight);
+        }
+    }
+
+    public static int VirtualHeight
+    {
+        get 
+        {
+            if (ViewportAdapter == null) throw new NullReferenceException("ViewportAdapter has not been initialized.");
+            return ViewportAdapter.VirtualHeight;
+        }
+        set
+        {
+            if (value != VirtualHeight)
+                SetVirtualResolution(VirtualWidth, value);
+        }
+    }
+    
+    private static int virtualWidth;
+    private static int virtualHeight;
+
+    public static bool Paused;
+
+    public Runtime(string title, int width, int height, bool fullScreen, int virtualWidth = -1, int virtualHeight = -1)
     {
         if (s_instance != null)
             throw new InvalidOperationException($"Only a single runtime can be created");
@@ -50,14 +77,11 @@ public class Runtime : Game
         Graphics.PreferredBackBufferWidth = width;
         Graphics.PreferredBackBufferHeight = height;
         Graphics.IsFullScreen = fullScreen;
-#endif
         Graphics.ApplyChanges();
-
-        RenderTexture = new RenderTexture(virtualWidth, virtualHeight, Window)
-        {
-            PixelPerfectScaling = false
-        };
-
+#endif
+        Runtime.virtualWidth = virtualWidth <= 0 ? width : virtualWidth;
+        Runtime.virtualHeight = virtualHeight <= 0 ? height : virtualHeight;
+        
         Window.Title = title;
         Window.AllowUserResizing = true;
         
@@ -66,33 +90,35 @@ public class Runtime : Game
         
         IsMouseVisible = true;
         ExitOnEscape = true;
+
+        ScreenManager = new ScreenManager();
     }
 
     protected override void Initialize()
     {
         base.Initialize();
-        
         GraphicsDevice = base.GraphicsDevice;
         SpriteBatch = new SpriteBatch(GraphicsDevice);
-        InitializeGum();
-        RenderTexture.Initialize(GraphicsDevice, SpriteBatch, GumUI);
         
         Input = new InputManager();
         Audio = new AudioController();
+        ScreenManager.Initialize();
+        SetVirtualResolution(virtualWidth, virtualHeight);
     }
 
     protected override void UnloadContent()
     {
         Audio.Dispose();
+        ScreenManager.Dispose();
         
         base.UnloadContent();
     }
 
     protected override void Update(GameTime gameTime)
     {
-        Input.Update(gameTime);
-        GumUI.Update(gameTime);
+        if (Paused) return;
         
+        Input.Update(gameTime);
         Audio.Update();
 
         if (ExitOnEscape && (Input.Keyboard.IsKeyDown(Keys.Escape) || Input.GamePads[0].IsButtonDown(Buttons.Back)))
@@ -100,50 +126,24 @@ public class Runtime : Game
             try { Exit(); }
             catch (PlatformNotSupportedException) { /* ignore */ }
         }
-
-        if (nextScene != null) TransitionScene();
-        activeScene?.Update(gameTime);
+        
+        ScreenManager.Update(gameTime);
 
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        activeScene?.Draw(gameTime);
+        ScreenManager.Draw(gameTime);
         
-        GumUI.Draw();
-        RenderTexture.Draw();
-
         base.Draw(gameTime);
     }
 
-    public static void ChangeScene(Scene next)
+    public static void SetVirtualResolution(int virtualWidth, int virtualHeight)
     {
-        if (activeScene != next)
-            nextScene = next;
-    }
-
-    private static void TransitionScene()
-    {
-        activeScene?.Dispose();
-
-        GC.Collect();
-
-        activeScene = nextScene;
-        nextScene = null;
-        
-        GumUI.Root.Children.Clear();
-        activeScene?.Initialize();
-    }
-
-    private void InitializeGum()
-    {
-        GumUI.Initialize(this, DefaultVisualsVersion.V3);
-        FileManager.RelativeDirectory = Runtime.Content.RootDirectory;
-        // TODO: Not included in this version of Gum.KNI (as of 17/01/26), update NuGet package in a week or two!
-        // GumService.Default.ContentLoader.XnaContentManager = Core.Content;
-        FrameworkElement.KeyboardsForUiControl.Add(GumUI.Keyboard);
-        FrameworkElement.TabReverseKeyCombos.Add(new KeyCombo { PushedKey = Keys.Up});
-        FrameworkElement.TabKeyCombos.Add(new KeyCombo { PushedKey = Keys.Down});
+        Runtime.virtualWidth = virtualWidth;
+        Runtime.virtualHeight = virtualHeight;
+        ViewportAdapter = new BoxingViewportAdapter(Instance.Window, GraphicsDevice, virtualWidth, virtualHeight);
+        onViewportAdapterResize?.Invoke();
     }
 }

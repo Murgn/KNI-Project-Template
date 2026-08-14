@@ -9,7 +9,22 @@
     <Import_RootNamespace>Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AudioGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Chip8.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreGame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Scenes\GameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Screens\GameplayScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Screens\MainMenuScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scripts\ChipScript.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)..\CoreContent\Gum\**\*.cs">
+      <Link>Content\Gum\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)..\CoreContent\Gum\**\*.*" Exclude="$(MSBuildThisFileDirectory)..\CoreContent\Gum\**\*.cs">
+      <Link>Content\Gum\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

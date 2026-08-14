@@ -1,19 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>Chip8</AssemblyName>
     <EnableDefaultItems>false</EnableDefaultItems>
     <TargetFramework>net8.0</TargetFramework>
     <RollForward>Major</RollForward>
     <ProjectGuid>e85edbd0-0fa9-435e-8119-668c9e27e7d1</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <PublishTrimmed>True</PublishTrimmed>
-    <PublishAot>True</PublishAot>
+    
+    <PublishTrimmed>False</PublishTrimmed> 
+    <PublishAot>False</PublishAot>
+    <PublishSingleFile>True</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <DefineConstants>$(DefineConstants);DESKTOPGL</DefineConstants>
     <KniPlatform>DesktopGL</KniPlatform>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 	
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,7 +35,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Gum.KNI" Version="2025.12.9.1" />
+    <PackageReference Include="KNI.Extended" Version="5.3.1" />
+    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
     <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
@@ -60,5 +67,4 @@
     <ProjectReference Include="..\..\Engine\Engine.csproj" />
   </ItemGroup>
   <Import Project="..\Core.Shared\Core.Shared.projitems" Label="Shared" />
-
 </Project>

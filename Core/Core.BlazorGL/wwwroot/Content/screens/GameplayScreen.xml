@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Screen name="GameplayScreen">
+  <GameObject name="Camera">
+    <Transform position="{X: 0, Y: 0 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Engine.Scripts.Rendering.CameraScript, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+  <GameObject name="Player">
+    <Transform position="{X: 128, Y: 72 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Core.Scripts.Player.PlayerController, Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+  <GameObject name="Square">
+    <Transform position="{X: 128, Y: 72 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+  <GameObject name="Square">
+    <Transform position="{X: 132, Y: 72 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+  <GameObject name="Square">
+    <Transform position="{X: 136, Y: 72 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+  <GameObject name="Square">
+    <Transform position="{X: 140, Y: 72 }" rotation="0" scale="{X: 1, Y: 1 }" />
+    <Scripts>
+      <Script type="Engine.Scripts.Rendering.PrimitiveRenderer, Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </Scripts>
+  </GameObject>
+</Screen>

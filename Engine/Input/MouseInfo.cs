@@ -126,7 +126,7 @@ public class MouseInfo
                 return false;
         }
     }
-
+    
     public void SetPosition(Vector2 position)
     {
         int x = (int)Math.Round(position.X);

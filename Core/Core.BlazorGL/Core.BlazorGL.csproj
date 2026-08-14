@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
+    <AssemblyName>Chip8</AssemblyName>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <ProjectGuid>{e9724250-4982-457c-b774-cfe29ada2225}</ProjectGuid>
     <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
     <DefineConstants>$(DefineConstants);BLAZORGL</DefineConstants>
 	<KniPlatform>BlazorGL</KniPlatform>
   </PropertyGroup>
@@ -29,7 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Gum.KNI" Version="2025.12.9.1" />
+    <PackageReference Include="KNI.Extended" Version="5.3.1" />
+    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
     <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
@@ -58,6 +59,237 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\.gumfcs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ButtonBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ButtonBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\CheckBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\CheckBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ComboBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ComboBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\DialogBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\DialogBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\InputDeviceSelectionItemBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\InputDeviceSelectionItemBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\InputDeviceSelectorBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\InputDeviceSelectorBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ItemsControlBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ItemsControlBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\LabelBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\LabelBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ListBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ListBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ListBoxItemBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ListBoxItemBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\MenuBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\MenuBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\MenuItemBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\MenuItemBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\OnScreenKeyboardBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\OnScreenKeyboardBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PanelBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PanelBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PasswordBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PasswordBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PlayerJoinViewBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PlayerJoinViewBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PlayerJoinViewItemBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\PlayerJoinViewItemBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\RadioButtonBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\RadioButtonBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ScrollBarBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ScrollBarBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ScrollViewerBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ScrollViewerBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SettingsViewBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SettingsViewBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SliderBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SliderBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SplitterBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\SplitterBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\StackPanelBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\StackPanelBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TextBoxBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TextBoxBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ToastBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ToastBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ToggleBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\ToggleBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TreeViewBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TreeViewBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TreeViewItemBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\TreeViewItemBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\UserControlBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\UserControlBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\WindowBehavior.behj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Behaviors\WindowBehavior.behx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Chip8.gumj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Chip8.gumx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Chip8.user.setj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonClose.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonClose.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonConfirm.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonConfirm.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonDeny.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonDeny.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonIcon.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonIcon.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonStandard.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonStandard.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonStandardIcon.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonStandardIcon.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonTab.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ButtonTab.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\CheckBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\CheckBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ComboBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ComboBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\DialogBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\DialogBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\InputDeviceSelectionItem.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\InputDeviceSelectionItem.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\InputDeviceSelector.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\InputDeviceSelector.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ItemsControl.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ItemsControl.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ItemsControlAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ItemsControlAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Keyboard.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Keyboard.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardKey.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardKey.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardKeyAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\KeyboardKeyAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Label.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Label.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ListBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ListBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ListBoxItem.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ListBoxItem.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Menu.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Menu.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\MenuItem.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\MenuItem.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Panel.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Panel.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PasswordBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PasswordBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PlayerJoinView.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PlayerJoinView.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PlayerJoinViewItem.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\PlayerJoinViewItem.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\RadioButton.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\RadioButton.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ScrollBar.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ScrollBar.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ScrollViewer.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\ScrollViewer.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\SettingsView.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\SettingsView.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Slider.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Slider.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\SplitterStandard.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\SplitterStandard.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\StackPanel.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\StackPanel.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TextBox.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TextBox.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TextBoxAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TextBoxAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Toast.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Toast.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeView.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeView.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewItem.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewItem.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewToggle.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewToggle.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewToggleAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\TreeViewToggleAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\UserControl.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\UserControl.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Window.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\Window.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\WindowAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Controls\WindowAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\CautionLines.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\CautionLines.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\Divider.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\Divider.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerHorizontal.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerHorizontal.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerHorizontalAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerHorizontalAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerVertical.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerVertical.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerVerticalAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\DividerVerticalAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\Icon.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\Icon.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\IconAnimations.ganj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\IconAnimations.ganx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\PercentBar.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\PercentBar.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\PercentBarIcon.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\PercentBarIcon.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\VerticalLines.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Elements\VerticalLines.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Styles.gucj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Components\Styles.gucx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\EventExport\gum_events.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\ExampleSpriteFrame.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font10Arial.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font10Arial.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font10Arial_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font12Arial.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font12Arial.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font12Arial_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Bold.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Bold.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Bold_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Italic.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Italic.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font14Arial_Italic_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font16Arial_Bold.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font16Arial_Bold.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font16Arial_Bold_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font18Arial_Bold.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font18Arial_Bold.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font18Arial_Bold_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font22Arial_Bold.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font22Arial_Bold.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font22Arial_Bold_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font28Arial_Bold.bmfc" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font28Arial_Bold.fnt" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\FontCache\Font28Arial_Bold_0.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\ProjectCodeSettings.codsj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Screens\MainMenu.codsj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Screens\MainMenuUI.codsj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Screens\MainMenuUI.gusj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Screens\MainMenuUI.gusx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Circle.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Circle.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\ColoredRectangle.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\ColoredRectangle.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Component.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Component.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Container.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Container.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\NineSlice.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\NineSlice.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Polygon.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Polygon.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Rectangle.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Rectangle.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Sprite.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Sprite.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Text.gutj" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\Standards\Text.gutx" />
+    <_ContentIncludedByDefault Remove="wwwroot\Content\Gum\UISpriteSheet.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,5 +297,11 @@
   </ItemGroup>
 
   <Import Project="..\Core.Shared\Core.Shared.projitems" Label="Shared" />
-
-</Project>
+  <Target Name="CopyGumToWwwroot" BeforeTargets="Build">
+    <ItemGroup>
+      <_GumFiles Include="..\CoreContent\Gum\**\*.*" Exclude="..\CoreContent\Gum\**\*.cs" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_GumFiles)"
+          DestinationFolder="wwwroot\Content\Gum\%(RecursiveDir)"
+          SkipUnchangedFiles="true" />
+  </Target></Project>

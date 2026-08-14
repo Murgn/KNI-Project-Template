@@ -8,18 +8,53 @@
     <base href="./">
     <link rel="icon" type="image/x-icon" href="icon.ico">
     <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        (function()
+        {
+            window._audioContexts = [];
+            var NativeAudioContext = window.AudioContext || window.webkitAudioContext;
+            if (NativeAudioContext)
+            {
+                var PatchedAudioContext = function(...args)
+                {
+                    var ctx = new NativeAudioContext(...args);
+                    window._audioContexts.push(ctx);
+                    return ctx;
+                };
+                PatchedAudioContext.prototype = NativeAudioContext.prototype;
+                window.AudioContext = PatchedAudioContext;
+                window.webkitAudioContext = PatchedAudioContext;
+            }
+
+            function resumeAllAudioContexts()
+            {
+                window._audioContexts.forEach(function(ctx)
+                {
+                    if (ctx.state === "suspended")
+                        ctx.resume();
+                });
+            }
+
+            ["click", "touchstart", "keydown"].forEach(function(evt)
+            {
+                window.addEventListener(evt, resumeAllAudioContexts, { once: true });
+            });
+        })();
+    </script>
+
 </head>
 
 <body>
 
     <div id="app">
-            <div id="loading">loading<span id="dots"></span></div>
+        <div id="loading">loading<span id="dots"></span></div>
     </div>
     
     <script>
         const dots = document.getElementById("dots");
         let count = 0;
-
+    
         setInterval(() => {
             count = (count + 1) % 4;
             dots.textContent = ".".repeat(count);

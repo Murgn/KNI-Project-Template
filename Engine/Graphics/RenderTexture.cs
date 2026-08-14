@@ -1,8 +1,6 @@
 using System;
-using Gum.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGameGum;
 
 namespace Engine.Graphics;
 
@@ -18,7 +16,6 @@ public class RenderTexture
     
     public GraphicsDevice GraphicsDevice { get; private set; }
     public SpriteBatch SpriteBatch { get; private set; }
-    public GumService GumUI { get; private set; }
 
     private GameWindow Window;
     
@@ -39,11 +36,10 @@ public class RenderTexture
         Window = window;
     }
 
-    public void Initialize(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GumService gumUI)
+    public void Initialize(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch)
     {
         GraphicsDevice = graphicsDevice;
         SpriteBatch = spriteBatch;
-        GumUI = gumUI;
         
         Target = new RenderTarget2D(GraphicsDevice, renderWidth, renderHeight);
         Window.ClientSizeChanged += Resize;
@@ -86,17 +82,5 @@ public class RenderTexture
         int offsetY = (windowHeight - drawHeight) / 2;
 
         destination = new Rectangle(offsetX, offsetY, drawWidth, drawHeight);
-        ResizeGumCanvas();
-    }
-
-    public void ResizeGumCanvas()
-    {
-        GumUI.CanvasWidth = renderWidth;
-        GumUI.CanvasHeight = renderHeight;
-
-        Matrix translateMatrix = Matrix.CreateTranslation(-destination.X, -destination.Y, 0f);
-        Matrix scaleMatrix = Matrix.CreateScale(1.0f / scale, 1.0f / scale, 1f);
-
-        GumUI.Cursor.TransformMatrix = translateMatrix * scaleMatrix;    
     }
 }

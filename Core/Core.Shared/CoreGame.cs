@@ -1,18 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Core.Scenes;
+﻿using Core.Scenes;
+using Microsoft.Xna.Framework;
 using Engine;
 
 namespace Core
 {
     public class CoreGame : Runtime
-    {        
-        public CoreGame() : base("Project", 1280, 720, false, 320, 180) { }
+    {
+        public CoreGame() : base("Chip-8", 1024, 512, false, 64, 32) { }
 
         protected override void Initialize()
         {
             base.Initialize();
-            
-            ChangeScene(new GameScene());
+            ScreenManager.ShowScreen(new MainMenuScreen(this));
         }
 
         protected override void LoadContent()
@@ -22,7 +21,7 @@ namespace Core
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.SetRenderTarget(RenderTexture.Target);
+            //GraphicsDevice.SetRenderTarget(RenderTexture.Target);
             
             base.Draw(gameTime);
         }

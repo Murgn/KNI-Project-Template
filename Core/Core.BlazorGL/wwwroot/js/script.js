@@ -16,6 +16,36 @@ window.initRenderJS = (instance) =>
     
     // disable context menu on right click
     canvas.addEventListener("contextmenu", e => e.preventDefault());
+
+    // dragndrop
+    ["dragenter", "dragover"].forEach(evt => {
+        holder.addEventListener(evt, e => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "copy";
+            holder.classList.add("drag-over");
+        });
+    });
+
+    ["dragleave", "drop"].forEach(evt => {
+        holder.addEventListener(evt, e => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "copy";
+            holder.classList.remove("drag-over");
+        });
+    });
+
+    holder.addEventListener("drop", async e => {
+        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (!file) return;
+
+        const buffer = await file.arrayBuffer();
+        const bytes = new Uint8Array(buffer);
+
+        await window.theInstance.invokeMethodAsync('LoadRomFromBytes', bytes);
+    });
+
+    holder.addEventListener("dragover", e => e.preventDefault());
+    holder.addEventListener("drop", e => e.preventDefault());
     
     // begin game loop
     window.requestAnimationFrame(tickJS);
