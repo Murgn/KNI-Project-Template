@@ -16,6 +16,7 @@ public class Script
     public virtual void Initialize() { }
     public virtual void Start() { }
     public virtual void Update(GameTime gameTime) { }
+    public virtual void LateUpdate(GameTime gameTime) { }
     public virtual void Draw(GameTime gameTime) { }
     public virtual void OnDestroy() { }
     

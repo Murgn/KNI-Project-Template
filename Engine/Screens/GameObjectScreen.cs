@@ -43,14 +43,27 @@ public abstract class GameObjectScreen : GameScreen
         var orthoCamera = CameraScript.OrthoCamera;
         Matrix cameraMatrix = orthoCamera.GetViewMatrix();
             
-        Runtime.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: orthoCamera.GetViewMatrix());
+        Runtime.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: orthoCamera.GetViewMatrix(), rasterizerState: RasterizerState.CullNone);
         {
             foreach (var gameObject in GameObjects)
                 gameObject.Draw(gameTime);
         }
         Runtime.SpriteBatch.End();
-
     }
+
+    public override void Update(GameTime gameTime)
+    {
+        foreach (var gameObject in GameObjects)
+            gameObject.Update(gameTime);
+    }
+
+    public virtual void LateUpdate(GameTime gameTime)
+    {
+        foreach (var gameObject in GameObjects)
+            gameObject.LateUpdate(gameTime);
+    }
+
+    public virtual void DrawUI(GameTime gameTime) { }
 
     public override void UnloadContent()
     {

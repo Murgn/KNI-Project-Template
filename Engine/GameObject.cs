@@ -22,9 +22,14 @@ public class GameObject
     {
         ParentScreen = parentScene;
         Name = name;
+        
+        var types = scripts.ToList();
 
-        foreach (var type in scripts)
+        foreach (var type in types)
             AddScript(type);
+        
+        foreach (var script in this.scripts)
+            script.Start();
     }
 
 
@@ -51,6 +56,15 @@ public class GameObject
         foreach (var script in scripts.Where(script => script.Enabled))
             script.Update(gameTime);
     }
+    
+    public void LateUpdate(GameTime gameTime)
+    {
+        if (IsDestroyed) return;
+
+        foreach (var script in scripts.Where(script => script.Enabled))
+            script.LateUpdate(gameTime);
+    }
+
 
     public void Draw(GameTime gameTime)
     {
@@ -76,11 +90,7 @@ public class GameObject
         if (IsDestroyed)
             throw new InvalidOperationException("Cannot add script, GameObject is destroyed.");
 
-        Script script = new T
-        {
-            GameObject = this
-        };
-        
+        Script script = new T { GameObject = this };
         scripts.Add(script);
         script.Initialize();
         script.Start();
@@ -99,7 +109,6 @@ public class GameObject
         script.GameObject = this;
         scripts.Add(script);
         script.Initialize();
-        script.Start();
         return script;
     }
     

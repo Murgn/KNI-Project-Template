@@ -11,6 +11,7 @@
     <DefineConstants>$(DefineConstants);BLAZORGL</DefineConstants>
 	<KniPlatform>BlazorGL</KniPlatform>
     <WasmBuildNative>true</WasmBuildNative>
+    <ApplicationIcon>wwwroot\icon.ico</ApplicationIcon>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -30,6 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aether.Physics2D.Diagnostics.KNI" Version="2.2.0" />
+    <PackageReference Include="Aether.Physics2D.KNI" Version="2.2.0" />
     <PackageReference Include="ImGui.NET.SourceBuild" Version="1.90.1" />
     <PackageReference Include="KNI.Extended" Version="5.3.1" />
     <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
@@ -61,108 +64,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Maze (alt) [David Winter, 199x].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Maze [David Winter, 199x].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Particle Demo [zeroZshadow, 2008].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Sierpinski [Sergey Naydenov, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Sirpinski [Sergey Naydenov, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Stars [Sergey Naydenov, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Trip8 Demo (2008) [Revival Studios].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\demos\Zero Demo [zeroZshadow, 2007].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\15 Puzzle [Roger Ivie] (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\15 Puzzle [Roger Ivie].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Addition Problems [Paul C. Moews].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Airplane.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Animal Race [Brian Astle].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Astro Dodge [Revival Studios, 2008].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Biorhythm [Jef Winsor].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Blinky [Hans Christian Egeberg, 1991].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Blinky [Hans Christian Egeberg] (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Blitz [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Bowling [Gooitzen van der Wal].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Breakout (Brix hack) [David Winter, 1997].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Breakout [Carmelo Cortez, 1979].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Brick (Brix hack, 1990).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Brix [Andreas Gustafsson, 1990].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Cave.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Coin Flipping [Carmelo Cortez, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Connect 4 [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Craps [Camerlo Cortez, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Deflection [John Fort].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Figures.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Filter.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Guess [David Winter] (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Guess [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Hi-Lo [Jef Winsor, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Hidden [David Winter, 1996].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Kaleidoscope [Joseph Weisbecker, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Landing.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Lunar Lander (Udo Pernisz, 1979).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Mastermind FourRow (Robert Lindley, 1978).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Merlin [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Missile [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Most Dangerous Game [Peter Maruhnic].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Nim [Carmelo Cortez, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Paddles.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Pong (1 player).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Pong (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Pong 2 (Pong hack) [David Winter, 1997].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Pong [Paul Vervalin, 1990].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\PONG2" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Programmable Spacefighters [Jef Winsor].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Puzzle.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Reversi [Philip Baltzer].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Rocket Launch [Jonas Lindstedt].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Rocket Launcher.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Rocket [Joseph Weisbecker, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Rush Hour [Hap, 2006] (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Rush Hour [Hap, 2006].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Russian Roulette [Carmelo Cortez, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Sequence Shoot [Joyce Weisbecker].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Shooting Stars [Philip Baltzer, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Slide [Joyce Weisbecker].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Soccer.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Space Flight.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Space Intercept [Joseph Weisbecker, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Space Invaders [David Winter] (alt).ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Space Invaders [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Spooky Spot [Joseph Weisbecker, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Squash [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Submarine [Carmelo Cortez, 1978].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Sum Fun [Joyce Weisbecker].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Syzygy [Roy Trevino, 1990].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Tank.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Tapeworm [JDR, 1999].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Tetris [Fran Dachille, 1991].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Tic-Tac-Toe [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Timebomb.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Tron.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\UFO [Lutz V, 1992].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Vers [JMN, 1991].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Vertical Brix [Paul Robson, 1996].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Wall [David Winter].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Wipe Off [Joseph Weisbecker].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\Worm V4 [RB-Revival Studios, 2007].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\X-Mirror.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\games\ZeroPong [zeroZshadow, 2007].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\manifest.txt" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\BMP Viewer - Hello (C8 example) [Hap, 2005].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Chip8 emulator Logo [Garstyciuks].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Chip8 Picture.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Clock Program [Bill Fisher, 1981].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Delay Timer Test [Matthew Mikolay, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Division Test [Sergey Naydenov, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Fishie [Hap, 2005].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Framed MK1 [GV Samways, 1980].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Framed MK2 [GV Samways, 1980].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\heart_monitor.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\IBM Logo.ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Jumping X and O [Harry Kleinberg, 1977].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Keypad Test [Hap, 2006].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Life [GV Samways, 1980].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Minimal game [Revival Studios, 2007].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\Random Number Test [Matthew Mikolay, 2010].ch8" />
-    <_ContentIncludedByDefault Remove="wwwroot\Content\roms\programs\SQRT Test [Sergey Naydenov, 2010].ch8" />
   </ItemGroup>
 
   <ItemGroup>

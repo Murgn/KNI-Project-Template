@@ -33,3 +33,6 @@
 #begin screens/GameplayScreen.xml
 /copy:screens/GameplayScreen.xml
 
+#begin DiagnosticsFont.xnb
+/copy:DiagnosticsFont.xnb
+
