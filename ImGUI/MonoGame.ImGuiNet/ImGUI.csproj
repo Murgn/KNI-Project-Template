@@ -47,7 +47,7 @@
     <ItemGroup>
         <PackageReference Include="ImGui.NET" Version="1.90.1.1" />
         <PackageReference Include="KNI.Extended" Version="6.1.0" />
-        <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
+        <PackageReference Include="KNI.Extended.Content.Pipeline" Version="6.1.0" />
         <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
         <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
         <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />

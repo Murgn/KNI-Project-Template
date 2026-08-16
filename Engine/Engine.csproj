@@ -16,7 +16,7 @@
     <PackageReference Include="Aether.Physics2D.Diagnostics.KNI" Version="2.2.0" />
     <PackageReference Include="Aether.Physics2D.KNI" Version="2.2.0" />
     <PackageReference Include="KNI.Extended" Version="6.1.0" />
-    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="5.3.1" />
+    <PackageReference Include="KNI.Extended.Content.Pipeline" Version="6.1.0" />
     <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
     <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
@@ -52,9 +52,11 @@
     <Compile Include="Screens\GameObjectScreen.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="Scripts\Physics\PhysicsBody2D.cs" />
+    <Compile Include="Scripts\Physics\TilemapCollider2D.cs" />
     <Compile Include="Scripts\Rendering\CameraScript.cs" />
     <Compile Include="Scripts\Rendering\PrimitiveRenderer.cs" />
     <Compile Include="Scripts\Rendering\SpriteRenderer.cs" />
+    <Compile Include="Scripts\Rendering\TilemapRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ImGUI\MonoGame.ImGuiNet\ImGUI.csproj" />

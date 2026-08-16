@@ -14,6 +14,7 @@ public class CameraScript : Script
     public int speed = 50;
     public bool canMove = false;
     public Color ClearColor { get; set; } = Color.CornflowerBlue;
+    public GameObject lookAt = null;
     
     public override void Initialize()
     {
@@ -29,7 +30,11 @@ public class CameraScript : Script
         OrthoCamera.Zoom = MathF.Max(Transform.Scale.X, Transform.Scale.Y);
         OrthoCamera.LookAt(Transform.Position);
 
-        if (!canMove) return;
+        if (!canMove)
+        {
+            Transform.Position = lookAt.Transform.Position;
+            return;
+        }
         
         KeyboardInfo keyboard = Runtime.Input.Keyboard;
         Vector2 velocity = Vector2.Zero;

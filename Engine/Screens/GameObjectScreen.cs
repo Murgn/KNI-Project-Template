@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using Engine.Debugging;
+using Engine.Graphics;
 using Engine.Maths;
 using Engine.Scripts.Rendering;
 using Microsoft.Xna.Framework;
@@ -12,6 +13,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.Screens;
+using MonoGame.Extended.Tilemaps;
 
 namespace Engine.Screens;
 
@@ -38,17 +40,34 @@ public abstract class GameObjectScreen : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-        Runtime.GraphicsDevice.Clear(CameraScript.ClearColor);
-            
         var orthoCamera = CameraScript.OrthoCamera;
         Matrix cameraMatrix = orthoCamera.GetViewMatrix();
-            
-        Runtime.SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: orthoCamera.GetViewMatrix(), rasterizerState: RasterizerState.CullNone);
+
+        // Runtime.GraphicsDevice.Clear(CameraScript.ClearColor); -- this clears the virtual resolution's letterboxing ! not what we want !!, alternative (maybe bad) method below \/
+        Runtime.SpriteBatch.Begin();
+        {
+            Runtime.SpriteBatch.Draw(CustomShapeExtensions.GetTexture(Runtime.SpriteBatch), new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), CameraScript.ClearColor);
+        }        
+        Runtime.SpriteBatch.End();
+        
+        // i hate having to do this, monogame.extended tilemaps cant have a sorting order and need to be in their own spritebatch start,end grouping
+        var tilemapsObjs = GameObjects.Where((x) => x.HasScript<TilemapRenderer>());
+        List<TilemapRenderer> renderers = tilemapsObjs.Select(gameObject => gameObject.GetScript<TilemapRenderer>()).ToList();
+
+        foreach (var renderer in renderers.Where(renderer => renderer.backgroundLayers.Count > 0))
+            for (int i = 0; i < renderer.backgroundLayers.Count; i++)
+                renderer.TileRenderer.DrawLayer(Runtime.SpriteBatch, orthoCamera, renderer.backgroundLayers[i]);
+
+        Runtime.SpriteBatch.Begin(SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: orthoCamera.GetViewMatrix(), rasterizerState: RasterizerState.CullNone);
         {
             foreach (var gameObject in GameObjects)
                 gameObject.Draw(gameTime);
         }
         Runtime.SpriteBatch.End();
+        
+        foreach (var renderer in renderers.Where(renderer => renderer.backgroundLayers.Count > 0))
+            renderer.TileRenderer.DrawLayers(Runtime.SpriteBatch, orthoCamera, renderer.foregroundLayers.ToArray());
+
     }
 
     public override void Update(GameTime gameTime)

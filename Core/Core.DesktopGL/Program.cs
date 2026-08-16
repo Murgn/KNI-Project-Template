@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Xna.Platform;
+using Microsoft.Xna.Platform.Graphics;
+using Microsoft.Xna.Platform.Input;
 
 namespace Core
 {
@@ -13,6 +16,11 @@ namespace Core
         [STAThread]
         static void Main()
         {
+            GameFactory.RegisterGameFactory(new ConcreteGameFactory());
+            InputFactory.RegisterInputFactory(new ConcreteInputFactory());
+            GraphicsFactory.RegisterGraphicsFactory(new ConcreteGraphicsFactory());
+            TitleContainerFactory.RegisterTitleContainerFactory(new ConcreteTitleContainerFactory());
+            
             using (var game = new CoreGame())
                 game.Run();
         }

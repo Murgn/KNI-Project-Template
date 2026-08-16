@@ -16,10 +16,10 @@ namespace Core.Scripts
     public class PlayerScript : Script
     {
         // Movement
-        public int speed = 5;
+        public int speed = 16;
         
         // Jumping
-        public int jumpForce = 5;
+        public int jumpForce = 16;
         public bool isGrounded => groundContacts > 0;
         private int groundContacts;
         
@@ -46,7 +46,6 @@ namespace Core.Scripts
             
             Movement();
             Gravity();
-            Debug.Log("hello everynyanbody ;^)");
         }
 
         private void Movement()
@@ -67,7 +66,6 @@ namespace Core.Scripts
 
         private void Gravity()
         {
-            Debug.Warn(physicsBody2D.body.LinearVelocity.Y.ToString());
             physicsBody2D.GravityScale = physicsBody2D.body.LinearVelocity.Y >= 0.2f ? fallingGravityScale : idleGravityScale;
         }
         

@@ -10,7 +10,7 @@
 
 #-------------------------------- References --------------------------------#
 
-/packageReference:KNI.Extended.Content.Pipeline 5.3.1
+/packageReference:KNI.Extended.Content.Pipeline 6.1.0
 
 #---------------------------------- Content ---------------------------------#
 
@@ -32,6 +32,20 @@
 
 #begin screens/GameplayScreen.xml
 /copy:screens/GameplayScreen.xml
+
+#begin sprites/Dog.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:sprites/Dog.png
+
+#begin tilemaps/Background.png
+/copy:tilemaps/Background.png
+
+#begin tilemaps/Map1.ldtk
+/copy:tilemaps/Map1.ldtk
+
+#begin tilemaps/bluesdog platforms.png
+/copy:tilemaps/bluesdog platforms.png
 
 #begin DiagnosticsFont.xnb
 /copy:DiagnosticsFont.xnb

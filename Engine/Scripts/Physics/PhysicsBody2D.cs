@@ -19,6 +19,8 @@ public class PhysicsBody2D : Script
     public Body body { get; private set; }
     public Fixture collider;
 
+    public Vector2 colliderScale = new Vector2(16, 16);
+
     public Vector2 Gravity { get; set; } = new Vector2(0.0f, 9.8f);
     public float GravityScale { get; set; } = 1.0f;
     
@@ -34,7 +36,7 @@ public class PhysicsBody2D : Script
         body = Runtime.PhysicsWorld.CreateBody(Transform.Position, Transform.Rotation, bodyType);
         body.IgnoreGravity = true;
         
-        collider = body.CreateRectangle(Transform.Scale.X, Transform.Scale.Y, 1.0f, Vector2.Zero);
+        collider = body.CreateRectangle(colliderScale.X * Transform.Scale.X, colliderScale.Y * Transform.Scale.Y, 1.0f, Vector2.Zero);
 
         SubscribeColliderEvents();
         
@@ -104,7 +106,7 @@ public class PhysicsBody2D : Script
         if (collider != null)
             body.Remove(collider);
 
-        collider = body.CreateRectangle(Transform.Scale.X, Transform.Scale.Y, 1.0f, Vector2.Zero);
+        collider = body.CreateRectangle(colliderScale.X * Transform.Scale.X, colliderScale.Y * Transform.Scale.Y, 1.0f, Vector2.Zero);
         SubscribeColliderEvents();
         body.SetTransform(Transform.Position, Transform.Rotation);
     }

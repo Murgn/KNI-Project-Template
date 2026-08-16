@@ -4,34 +4,12 @@ using Engine.Debugging;
 using Engine.Screens;
 using Engine.Scripts.Physics;
 using Engine.Scripts.Rendering;
-using ImGuiNET;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended.Tilemaps;
+using MonoGame.Extended.Tilemaps.LDtk;
+using MonoGame.Extended.Tilemaps.Rendering;
 using nkast.Aether.Physics2D.Diagnostics;
-using nkast.Aether.Physics2D.Dynamics;
-
-///
-/// PUSH THE WEB FIXING BRANCH INTO DEV GAME READY !!!!!!!!!!!!!!!!
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-///
-/// 
+using TilemapRenderer = Engine.Scripts.Rendering.TilemapRenderer;
 
 namespace Core.Scenes
 {
@@ -40,42 +18,33 @@ namespace Core.Scenes
         public GameplayScreen(Game game) : base(game, "MainMenuScreen") { }
         private DebugView _debugView;
         
-        GameObject selectedObject = null;
-
         public override void Initialize()
         {
             base.Initialize();
-            CameraScript.ClearColor = Color.Black;
+            CameraScript.ClearColor = new Color(49, 5, 30);
 
-            CreateGameObject("Player", new[] { typeof(PlayerScript), typeof(PrimitiveRenderer), typeof(PhysicsBody2D) });
-            MakeFloor(new Vector2(0.0f, 7.0f), new Vector2(10.0f, 3.0f));
-            MakeFloor(new Vector2(10.0f, 5.0f), new Vector2(10.0f, 1.0f));
-            MakeFloor(new Vector2(-10.0f, 0.0f), new Vector2(10.0f, 2.0f));
+            var player = CreateGameObject("Player", new[] { typeof(PlayerScript), typeof(PhysicsBody2D), typeof(SpriteRenderer) });
+            var sprite = player.GetScript<SpriteRenderer>();
+            sprite.spritePath = "sprites/Dog";
+            sprite.Setup();
+            sprite.sortingOrder = 1;
+
+            player.Transform.Position = new Vector2(50, 216);
+            
+            var tilemap = CreateGameObject("Tilemap", new[]  { typeof(TilemapRenderer), typeof(TilemapCollider2D) });
+            var renderer = tilemap.GetScript<TilemapRenderer>();
+            renderer.backgroundLayers.Add("Background");
+            renderer.backgroundLayers.Add("Platforms");
+            tilemap.GetScript<TilemapCollider2D>().Setup();
+
+            CameraScript.lookAt = player;
             
             _debugView = new DebugView(Runtime.PhysicsWorld);
             _debugView.LoadContent(GraphicsDevice, Content);
             _debugView.AppendFlags(DebugViewFlags.Shape);
             _debugView.AppendFlags(DebugViewFlags.AABB);
         }
-
-        private int floorCount;
         
-        public void MakeFloor(Vector2 pos, Vector2 scale)
-        {
-            var floor = CreateGameObject($"Floor {floorCount}", new[] { typeof(PrimitiveRenderer), typeof(PhysicsBody2D) });
-            floor.Transform.Position = pos;
-            floor.Transform.Scale = scale;
-            var physics = floor.GetScript<PhysicsBody2D>();
-            physics.bodyType = BodyType.Kinematic;
-            physics.RebuildCollider();
-            floorCount++;
-        }
-
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
-        }
-
         public override void DrawUI(GameTime gameTime)
         {
             base.DrawUI(gameTime);
@@ -90,11 +59,6 @@ namespace Core.Scenes
             }
             this.DrawDebugEditor();
             #endif
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
         }
     }
 }

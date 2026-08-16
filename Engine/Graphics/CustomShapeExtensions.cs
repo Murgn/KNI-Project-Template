@@ -11,7 +11,7 @@ public static class CustomShapeExtensions
 #nullable disable
         Texture2D _whitePixelTexture;
     
-    private static Texture2D GetTexture(SpriteBatch spriteBatch)
+    public static Texture2D GetTexture(SpriteBatch spriteBatch)
     {
         if (_whitePixelTexture == null || _whitePixelTexture.IsDisposed)
         {

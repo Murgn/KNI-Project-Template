@@ -7,7 +7,7 @@ namespace Core
     public class CoreGame : Runtime
     {
         // virtual resolution broken
-        public CoreGame() : base("Project", 1280, 720, false, 64, 32) { }
+        public CoreGame() : base("Project", 1280, 720, false, 128, 128) { }
 
         protected override void Initialize()
         {

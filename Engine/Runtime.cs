@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using Engine.Audio;
 using Engine.Debugging;
 using Engine.Input;
@@ -9,10 +8,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.ImGuiNet;
-using nkast.Aether.Physics2D.Diagnostics;
 using nkast.Aether.Physics2D.Dynamics;
 
 namespace Engine;
@@ -94,8 +91,8 @@ public class Runtime : Game
         Graphics.IsFullScreen = fullScreen;
         Graphics.ApplyChanges();
 #endif
-        Runtime.virtualWidth = virtualWidth <= 0 ? width : virtualWidth;
-        Runtime.virtualHeight = virtualHeight <= 0 ? height : virtualHeight;
+        Runtime.virtualWidth = virtualWidth < 0 ? width : virtualWidth;
+        Runtime.virtualHeight = virtualHeight < 0 ? height : virtualHeight;
         
         Window.Title = title;
         Window.AllowUserResizing = true;
@@ -105,12 +102,6 @@ public class Runtime : Game
         
         IsMouseVisible = true;
         ExitOnEscape = true;
-
-        ScreenManager = new CustomScreenManager();
-        
-        PhysicsWorld = new World();
-        PhysicsWorld.Gravity = new Vector2(0f, 0f);
-        
     }
 
     protected override void Initialize()
@@ -129,7 +120,12 @@ public class Runtime : Game
         
         Input = new InputManager();
         Audio = new AudioController();
+        ScreenManager = new CustomScreenManager();
+        PhysicsWorld = new World();
+
         ScreenManager.Initialize();
+        PhysicsWorld.Gravity = new Vector2(0f, 0f);
+        
         SetVirtualResolution(virtualWidth, virtualHeight);
         
 // #if !BLAZORGL
@@ -171,6 +167,7 @@ public class Runtime : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.Black);
+
         ScreenManager.Draw(gameTime);
         
         GuiRenderer.BeginLayout(gameTime);
@@ -202,6 +199,7 @@ public class Runtime : Game
         Runtime.virtualWidth = virtualWidth;
         Runtime.virtualHeight = virtualHeight;
         ViewportAdapter = new BoxingViewportAdapter(Instance.Window, GraphicsDevice, virtualWidth, virtualHeight);
+        ViewportAdapter.Reset();
         onViewportAdapterResize?.Invoke();
     }
 }
