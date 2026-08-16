@@ -9,13 +9,36 @@ using Microsoft.Xna.Framework;
 using nkast.Aether.Physics2D.Diagnostics;
 using nkast.Aether.Physics2D.Dynamics;
 
+///
+/// PUSH THE WEB FIXING BRANCH INTO DEV GAME READY !!!!!!!!!!!!!!!!
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+/// 
+
 namespace Core.Scenes
 {
     public class GameplayScreen : GameObjectScreen
     {
         public GameplayScreen(Game game) : base(game, "MainMenuScreen") { }
         private DebugView _debugView;
-
         
         GameObject selectedObject = null;
 
@@ -30,7 +53,7 @@ namespace Core.Scenes
             MakeFloor(new Vector2(-10.0f, 0.0f), new Vector2(10.0f, 2.0f));
             
             _debugView = new DebugView(Runtime.PhysicsWorld);
-            _debugView.LoadContent(GraphicsDevice, Content); // needs DiagnosticsFont.xnb shipped with the package — check it's actually copied into your Content output
+            _debugView.LoadContent(GraphicsDevice, Content);
             _debugView.AppendFlags(DebugViewFlags.Shape);
             _debugView.AppendFlags(DebugViewFlags.AABB);
         }
@@ -57,15 +80,14 @@ namespace Core.Scenes
         {
             base.DrawUI(gameTime);
 
-            #if DEBUG
+            #if DEBUG && !BLAZORGL
 
             if (Editor.ShowDebug)
             {
                 Matrix projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, -1, 1);
-                Matrix view = CameraScript.OrthoCamera.GetViewMatrix(); // or your actual camera view matrix if you have one
+                Matrix view = CameraScript.OrthoCamera.GetViewMatrix();
                 _debugView.RenderDebugData(ref projection, ref view);
             }
-            
             this.DrawDebugEditor();
             #endif
         }
