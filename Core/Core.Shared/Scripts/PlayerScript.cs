@@ -7,9 +7,9 @@ using Engine.Input;
 using Engine.Scripts.Physics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-// using nkast.Aether.Physics2D.Common;
-// using nkast.Aether.Physics2D.Dynamics;
-// using nkast.Aether.Physics2D.Dynamics.Contacts;
+using nkast.Aether.Physics2D.Common;
+using nkast.Aether.Physics2D.Dynamics;
+using nkast.Aether.Physics2D.Dynamics.Contacts;
 
 namespace Core.Scripts
 {
@@ -34,10 +34,10 @@ namespace Core.Scripts
         {
             base.Start();
             physicsBody2D = GetScript<PhysicsBody2D>();
-            // physicsBody2D.OnCollisionEnter += OnCollisionEnter;
-            // physicsBody2D.OnCollisionExit += OnCollisionExit;
-            // physicsBody2D.body.FixedRotation = true;
-            // physicsBody2D.collider.Friction = 0.0f;
+            physicsBody2D.OnCollisionEnter += OnCollisionEnter;
+            physicsBody2D.OnCollisionExit += OnCollisionExit;
+            physicsBody2D.body.FixedRotation = true;
+            physicsBody2D.collider.Friction = 0.0f;
         }
 
         public override void Update(GameTime gameTime)
@@ -54,47 +54,47 @@ namespace Core.Scripts
             KeyboardInfo keyboard = Runtime.Input.Keyboard;
             Vector2 dir = Vector2.Zero;
         
-            // if (keyboard.IsKeyPressed(Keys.Space) && isGrounded) 
-            //     physicsBody2D.body.ApplyLinearImpulse(-Vector2.UnitY * jumpForce);
-            // if (keyboard.IsKeyReleased(Keys.Space) && physicsBody2D.body.LinearVelocity.Y < 0) // variable jump height
-            //     physicsBody2D.body.LinearVelocity = new Vector2(physicsBody2D.body.LinearVelocity.X, physicsBody2D.body.LinearVelocity.Y * 0.25f);
-            // if (keyboard.IsKeyDown(Keys.A)) dir.X--;
-            // if (keyboard.IsKeyDown(Keys.D)) dir.X++;
-            // if(dir != Vector2.Zero) dir.Normalize();
-            //
-            // physicsBody2D.body.LinearVelocity = new Vector2(dir.X * speed, physicsBody2D.body.LinearVelocity.Y);
+            if (keyboard.IsKeyPressed(Keys.Space) && isGrounded) 
+                physicsBody2D.body.ApplyLinearImpulse(-Vector2.UnitY * jumpForce);
+            if (keyboard.IsKeyReleased(Keys.Space) && physicsBody2D.body.LinearVelocity.Y < 0) // variable jump height
+                physicsBody2D.body.LinearVelocity = new Vector2(physicsBody2D.body.LinearVelocity.X, physicsBody2D.body.LinearVelocity.Y * 0.25f);
+            if (keyboard.IsKeyDown(Keys.A)) dir.X--;
+            if (keyboard.IsKeyDown(Keys.D)) dir.X++;
+            if(dir != Vector2.Zero) dir.Normalize();
+            
+            physicsBody2D.body.LinearVelocity = new Vector2(dir.X * speed, physicsBody2D.body.LinearVelocity.Y);
         }
 
         private void Gravity()
         {
-            // Debug.Warn(physicsBody2D.body.LinearVelocity.Y.ToString());
-            // physicsBody2D.GravityScale = physicsBody2D.body.LinearVelocity.Y >= 0.2f ? fallingGravityScale : idleGravityScale;
+            Debug.Warn(physicsBody2D.body.LinearVelocity.Y.ToString());
+            physicsBody2D.GravityScale = physicsBody2D.body.LinearVelocity.Y >= 0.2f ? fallingGravityScale : idleGravityScale;
         }
         
-        // private void OnCollisionEnter(Fixture self, Fixture other, Contact contact)
-        // {
-        //     if (IsGroundBelow(self, contact))
-        //         groundContacts++;
-        // }
-        //
-        // private void OnCollisionExit(Fixture self, Fixture other, Contact contact)
-        // {
-        //     groundContacts = Math.Max(groundContacts - 1, 0);
-        // }
+        private void OnCollisionEnter(Fixture self, Fixture other, Contact contact)
+        {
+            if (IsGroundBelow(self, contact))
+                groundContacts++;
+        }
+
+        private void OnCollisionExit(Fixture self, Fixture other, Contact contact)
+        {
+            groundContacts = Math.Max(groundContacts - 1, 0);
+        }
         
-        // private static bool IsGroundBelow(Fixture self, Contact contact)
-        // {
-        //     contact.GetWorldManifold(out Vector2 normal, out FixedArray2<Vector2> points);
-        //     
-        //     if (contact.FixtureB == self)
-        //         normal = -normal;
-        //
-        //     Vector2 down = Vector2.UnitY;
-        //
-        //     float alignment = Vector2.Dot(normal, down);
-        //
-        //     const float threshold = 0.6f;
-        //     return alignment > threshold;
-        // }
+        private static bool IsGroundBelow(Fixture self, Contact contact)
+        {
+            contact.GetWorldManifold(out Vector2 normal, out FixedArray2<Vector2> points);
+            
+            if (contact.FixtureB == self)
+                normal = -normal;
+
+            Vector2 down = Vector2.UnitY;
+
+            float alignment = Vector2.Dot(normal, down);
+
+            const float threshold = 0.6f;
+            return alignment > threshold;
+        }
     }
 }
