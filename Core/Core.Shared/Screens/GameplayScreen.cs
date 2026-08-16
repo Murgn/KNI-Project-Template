@@ -6,15 +6,15 @@ using Engine.Scripts.Physics;
 using Engine.Scripts.Rendering;
 using ImGuiNET;
 using Microsoft.Xna.Framework;
-using nkast.Aether.Physics2D.Diagnostics;
-using nkast.Aether.Physics2D.Dynamics;
+// using nkast.Aether.Physics2D.Diagnostics;
+// using nkast.Aether.Physics2D.Dynamics;
 
 namespace Core.Scenes
 {
     public class GameplayScreen : GameObjectScreen
     {
         public GameplayScreen(Game game) : base(game, "MainMenuScreen") { }
-        private DebugView _debugView;
+        // private DebugView _debugView;
 
         
         GameObject selectedObject = null;
@@ -29,10 +29,10 @@ namespace Core.Scenes
             MakeFloor(new Vector2(10.0f, 5.0f), new Vector2(10.0f, 1.0f));
             MakeFloor(new Vector2(-10.0f, 0.0f), new Vector2(10.0f, 2.0f));
             
-            _debugView = new DebugView(Runtime.PhysicsWorld);
-            _debugView.LoadContent(GraphicsDevice, Content); // needs DiagnosticsFont.xnb shipped with the package — check it's actually copied into your Content output
-            _debugView.AppendFlags(DebugViewFlags.Shape);
-            _debugView.AppendFlags(DebugViewFlags.AABB);
+            // _debugView = new DebugView(Runtime.PhysicsWorld);
+            // _debugView.LoadContent(GraphicsDevice, Content);
+            // _debugView.AppendFlags(DebugViewFlags.Shape);
+            // _debugView.AppendFlags(DebugViewFlags.AABB);
         }
 
         private int floorCount;
@@ -43,7 +43,7 @@ namespace Core.Scenes
             floor.Transform.Position = pos;
             floor.Transform.Scale = scale;
             var physics = floor.GetScript<PhysicsBody2D>();
-            physics.bodyType = BodyType.Kinematic;
+            // physics.bodyType = BodyType.Kinematic;
             physics.RebuildCollider();
             floorCount++;
         }
@@ -63,7 +63,7 @@ namespace Core.Scenes
             {
                 Matrix projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, -1, 1);
                 Matrix view = CameraScript.OrthoCamera.GetViewMatrix(); // or your actual camera view matrix if you have one
-                _debugView.RenderDebugData(ref projection, ref view);
+                // _debugView.RenderDebugData(ref projection, ref view);
             }
             
             this.DrawDebugEditor();

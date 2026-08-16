@@ -12,8 +12,8 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.ImGuiNet;
-using nkast.Aether.Physics2D.Diagnostics;
-using nkast.Aether.Physics2D.Dynamics;
+// using nkast.Aether.Physics2D.Diagnostics;
+// using nkast.Aether.Physics2D.Dynamics;
 
 namespace Engine;
 
@@ -22,7 +22,7 @@ public class Runtime : Game
     internal static Runtime s_instance;
     public static Runtime Instance => s_instance;
 
-    public static World PhysicsWorld { get; private set; }
+    // public static World PhysicsWorld { get; private set; }
     
     public static GraphicsDeviceManager Graphics { get; private set; }
     public new static GraphicsDevice GraphicsDevice { get; private set; }
@@ -108,8 +108,8 @@ public class Runtime : Game
 
         ScreenManager = new CustomScreenManager();
         
-        PhysicsWorld = new World();
-        PhysicsWorld.Gravity = new Vector2(0f, 0f);
+        // PhysicsWorld = new World();
+        // PhysicsWorld.Gravity = new Vector2(0f, 0f);
         
     }
 
@@ -161,7 +161,7 @@ public class Runtime : Game
         ScreenManager.Update(gameTime);
         
         float dt = 1f/60f;
-        PhysicsWorld.Step(dt);
+        // PhysicsWorld.Step(dt);
         
         ScreenManager.LateUpdate(gameTime);
 
