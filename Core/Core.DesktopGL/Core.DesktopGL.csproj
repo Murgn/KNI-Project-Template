@@ -66,9 +66,6 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-<!--    <None Include="..\CoreContent\DiagnosticsFont.xnb">-->
-<!--      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>-->
-<!--    </None>-->
   </ItemGroup>  
   <ItemGroup>
     <ProjectReference Include="..\..\Engine\Engine.csproj" />

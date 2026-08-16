@@ -5,8 +5,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <RollForward>Major</RollForward>
     <ProjectGuid>ba1e6695-3cc6-45f2-921a-197fe238a3b0</ProjectGuid>
-    <PublishTrimmed>True</PublishTrimmed>
-    <PublishAot>True</PublishAot>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Engine</RootNamespace>
     <AssemblyName>Engine</AssemblyName>
